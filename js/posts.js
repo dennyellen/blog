@@ -1,1 +1,1 @@
-[{"title":"Hello World","date":"2017.09.04","uri":"2017/09/04/hello-world/","excerpt":""}]
+[{"title":"Hello World","date":"2017.09.04","uri":"2017/09/04/hello-world/","excerpt":""},{"title":"test_post","date":"2017.10.14","uri":"2017/10/14/test-post/","excerpt":""}]

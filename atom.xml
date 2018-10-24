@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-24T03:39:25.108Z</updated>
+  <updated>2018-10-24T06:37:45.685Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,20 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>the-first-windows-containers</title>
+    <link href="http://yoursite.com/2018/10/24/the-first-windows-containers/"/>
+    <id>http://yoursite.com/2018/10/24/the-first-windows-containers/</id>
+    <published>2018-10-24T06:15:21.000Z</published>
+    <updated>2018-10-24T06:37:45.685Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>随便拍的</title>
     <link href="http://yoursite.com/2017/12/19/%E9%9A%8F%E4%BE%BF%E6%8B%8D%E7%9A%84/"/>
     <id>http://yoursite.com/2017/12/19/随便拍的/</id>
     <published>2017-12-19T15:43:38.000Z</published>
-    <updated>2018-10-24T03:39:25.108Z</updated>
+    <updated>2018-10-24T06:53:57.572Z</updated>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<img src="/2017/12/19/随便拍的/AGP.jpg" title="挖到一枚上古神器(核弹)"> <img src="/2017/12/19/随便拍的/IMG_20170520_222335_HHT.jpg"> <img src="/2017/12/19/随便拍的/wx_camera_1499229538885.jpg">]]></content>
     
     <summary type="html">
     
       
       
-        
-
+        &lt;img src=&quot;/2017/12/19/随便拍的/AGP.jpg&quot; title=&quot;挖到一枚上古神器(核弹)&quot;&gt; &lt;img src=&quot;/2017/12/19/随便拍的/IMG_20170520_222335_HHT.jpg&quot;&gt; &lt;img src=&quot;/2017/12/19/随便拍
       
     
     </summary>
@@ -47,13 +60,13 @@
     <published>2017-10-21T05:11:14.000Z</published>
     <updated>2018-10-24T01:31:47.078Z</updated>
     
-    <content type="html"><![CDATA[<p>使用 Shadowsocks 的客户端 sslocal 时，有如下报错信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">File &quot;/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py&quot;, line 76, in __init__</span><br><span class="line">    load_openssl()</span><br><span class="line">  File &quot;/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py&quot;, line 52, in load_openssl</span><br><span class="line">    libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)</span><br><span class="line">  File &quot;/usr/lib64/python2.7/ctypes/__init__.py&quot;, line 373, in __getattr__</span><br><span class="line">    func = self.__getitem__(name)</span><br><span class="line">  File &quot;/usr/lib64/python2.7/ctypes/__init__.py&quot;, line 378, in __getitem__</span><br><span class="line">    func = self._FuncPtr((name_or_ordinal, self))</span><br><span class="line">AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</span><br></pre></td></tr></table></figure></p><p>查阅相关资料</p><p><a href="https://blog.lyz810.com/article/2016/09/shadowsocks-with-openssl-greater-than-110/" target="_blank" rel="noopener">解决openssl升级到1.1.0后shadowsocks服务报错问题</a></p><p>主要原因： openssl 升级至 1.1.0 后，废弃了EVP_CIPHER_CTX_cleanup 函数，并用 EVP_CIPHER_CTX_reset 函数替代了EVP_CIPHER_CTX_cleanup 函数。<br>解决方法 ：替换程序中对 EVP_CIPHER_CTX_cleanup 的引用。</p><ol><li><p>编辑 报错的文件，如上面示例中的</p><blockquote><p>/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py</p></blockquote></li><li><p>将第52行</p><blockquote><p>libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)</p></blockquote><p>改为</p><blockquote><p>libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)`</p></blockquote></li><li><p>将第111行</p><blockquote><p>ibcrypto.EVP_CIPHER_CTX_cleanup(self._ctx)</p></blockquote><p>改为</p><blockquote><p>libcrypto.EVP_CIPHER_CTX_reset(self._ctx)</p></blockquote></li><li>保存文件</li></ol>]]></content>
+    <content type="html"><![CDATA[<p>使用 Shadowsocks 的客户端 sslocal 时，有如下报错信息：<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">File &quot;/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py&quot;, line 76, in __init__</span><br><span class="line">    load_openssl()</span><br><span class="line">  File &quot;/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py&quot;, line 52, in load_openssl</span><br><span class="line">    libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)</span><br><span class="line">  File &quot;/usr/lib64/python2.7/ctypes/__init__.py&quot;, line 373, in __getattr__</span><br><span class="line">    func = self.__getitem__(name)</span><br><span class="line">  File &quot;/usr/lib64/python2.7/ctypes/__init__.py&quot;, line 378, in __getitem__</span><br><span class="line">    func = self._FuncPtr((name_or_ordinal, self))</span><br><span class="line">AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</span><br></pre></td></tr></table></figure><p></p><p>查阅相关资料</p><p><a href="https://blog.lyz810.com/article/2016/09/shadowsocks-with-openssl-greater-than-110/" target="_blank" rel="noopener">解决openssl升级到1.1.0后shadowsocks服务报错问题</a></p><p>主要原因： openssl 升级至 1.1.0 后，废弃了EVP_CIPHER_CTX_cleanup 函数，并用 EVP_CIPHER_CTX_reset 函数替代了EVP_CIPHER_CTX_cleanup 函数。<br>解决方法 ：替换程序中对 EVP_CIPHER_CTX_cleanup 的引用。</p><ol><li><p>编辑 报错的文件，如上面示例中的</p><blockquote><p>/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py</p></blockquote></li><li><p>将第52行</p><blockquote><p>libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)</p></blockquote><p>改为</p><blockquote><p>libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)`</p></blockquote></li><li><p>将第111行</p><blockquote><p>ibcrypto.EVP_CIPHER_CTX_cleanup(self._ctx)</p></blockquote><p>改为</p><blockquote><p>libcrypto.EVP_CIPHER_CTX_reset(self._ctx)</p></blockquote></li><li>保存文件</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;使用 Shadowsocks 的客户端 sslocal 时，有如下报错信息：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;
+        &lt;p&gt;使用 Shadowsocks 的客户端 sslocal 时，有如下报错信息：&lt;br&gt;&lt;/p&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/sp
       
     
     </summary>
